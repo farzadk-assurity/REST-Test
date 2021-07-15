@@ -27,7 +27,7 @@ public class StudentSteps {
 
     @Then("I can see that their name is {string}")
     public void check_name(String string) {
-        RestAssured.defaultParser = Parser.JSON;
+
         System.out.println(response.asPrettyString());
         String firstName = response.path("firstName");
         String lastName = response.path("lastName");
@@ -37,7 +37,6 @@ public class StudentSteps {
 
     @And("they have a {string} from {string}")
     public void check_degree_uni(String degree, String uni){
-        RestAssured.defaultParser = Parser.JSON;
         String getDegree = response.path("degree");
         String getUni = response.path("university");
         assertEquals(degree, getDegree);
